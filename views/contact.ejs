@@ -1,0 +1,39 @@
+<h1>Contact List</h1>
+<br>
+  <% if (!contacts.length === 0) { %>
+    <div class="alert alert-danger fw-bold" role="alert">
+      Data Contact tidak tersedia. 
+    </div>
+  <% } %>
+  <div class="container">
+    <!-- <h4 class="p-3">Ini adalah daftar kontak</h4> -->
+    <p class="text-sm-3 p-3">Ini dalah beberapa List daftar kontak yang tersedia :</p>
+    <div class="table-responsive">
+      <table class="table table-info table-bordered">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center">No</th>
+            <th scope="col" class="text-center">Nama</th>
+            <th scope="col" class="text-center">Nomor HP</th>
+            <th scope="col" class="text-center">Email</th>
+            <th scope="col" class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% contacts.forEach((contact, index) => { %>
+            <tr>
+              <td class="text-center"><%= index + 1 %></td>
+              <td><%= contact.nama %></td>
+              <td><%= contact.mobile %></td>
+              <td><%= contact.email %></td>
+              <td class="text-center">
+                <!-- Tambahkan tombol atau tautan aksi di sini -->
+                <!-- <a href="/contact/ class="btn btn-primary badge rounded-pill"><i class="bibi-info-circle">details </i></a> -->
+                <a href="/contact/<%= contact.nama %>"><button class="btn btn-primary">detail</button></a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
